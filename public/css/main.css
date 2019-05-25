@@ -30,7 +30,7 @@ body {
     padding: 0;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap | wrap | wrap-reverse;
+    /* flex-wrap: nowrap; */
 }
 
 .my-row {
@@ -84,6 +84,21 @@ img {
 
 /* modal container */
 #my-modal {
+    width: 480px;
+    height: 420px;
+    text-align: center;
+    position: fixed;
+    right: 30%;
+    z-index: 10;
+    top: 25%;
+    border-radius: 20px;
+    margin: 0 auto;
+    box-shadow: 2px 3px 15px #aaaaaa;
+    background: rgba(255, 255, 255, 0.96);
+    display: none;
+}
+
+#successBox {
     width: 480px;
     height: 420px;
     text-align: center;
@@ -227,4 +242,8 @@ span {
     padding: 10px;
     font-weight: lighter;
     letter-spacing: 1.3px;
+}
+
+.card-header {
+    background: lightgoldenrodyellow;
 }

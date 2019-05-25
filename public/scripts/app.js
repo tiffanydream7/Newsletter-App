@@ -1,3 +1,5 @@
+const url = '/api/users';
+
 // Modal popup
 const showModal = () => {
     setTimeout(() => {
@@ -11,13 +13,26 @@ showModal();
 // Subscribe
 $('#signup').on('click', function (e) {
     e.preventDefault();
-    $('.erro').remove();
+
+    // $.ajax({
+    //     method: "POST",
+    //     url,
+    //     data: $('.signup-form').serialize(),
+    //     error: err => console.log(err),
+    //     success: json => console.log(json)
+    // })
+
+
+
+
+    $('.error').remove();
     // Assume the POST request has no errors; we will make it true if any validation doesn't work
     let errors = false;
     // $('#nameForm').append('<p>Test</p>');
-    let fullName = $('#name').val();
-    let firstName = fullName.split('')[0];
-    let lastName = lastName.split('')[1];
+    console.log($('.name').val())
+    // let fullName = $('.name').val();
+    let firstName = $('#firstName').val();
+    let lastName = $('#lastName').val();
     let email = $('#email').val();
     // name validation
     // special character regex
@@ -73,7 +88,7 @@ $('#signup').on('click', function (e) {
 
     function handleSuccess(res) {
         let success = `
-        <div class="card" id="my-modal">
+        <div class="card" id="successBox">
         <div class="card-body">
         <h5> You 're all set!</h5>
         <h5 id="name">Thanks for signing up, ${firstName}.</h5>
@@ -86,7 +101,8 @@ $('#signup').on('click', function (e) {
         </div>
       </div>
     </form>`;
-        $('.my-modal').empty().append(success);
+        console.log('working')
+        $('#my-modal').empty().append(success);
     }
 
     function handleError(err) {

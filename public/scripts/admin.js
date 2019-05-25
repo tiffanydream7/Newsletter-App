@@ -8,6 +8,22 @@ $.ajax({
 });
 
 function handleSuccess(res) {
-    let totalEntries = res.length;
+    console.log(res)
+    res.forEach(user => {
+        console.log(user.firstName)
+        $('tbody').append(`
+            <tr>
+                <td></td>
+                <td>${user.firstName}</td>
+                <td>${user.lastName}</td>
+                <td>${user.email}</td>
+                <td>${user.signUpDate.slice(0, 10)}</td>
+            </tr>`
+        )
+    });
 
+}
+
+function handleError(err) {
+    console.log(err)
 }
